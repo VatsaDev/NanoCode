@@ -26,7 +26,7 @@ def download_file(url, output_dir):
   else:
     print('Error downloading file:', response.status_code)
 
-download_file('https://huggingface.co/VatsaDev/unagami/resolve/main/data.txt', 'output')
+download_file('https://huggingface.co/VatsaDev/NanoCode/resolve/main/data.txt', 'output')
 
 train_len = 0
 val_len = 0
@@ -63,8 +63,8 @@ total_train_data=[10] # just keeping arrays not empty
 total_val_data=[10]
 total_train_data=np.array(total_train_data, dtype=np.uint16)
 total_val_data=np.array(total_val_data, dtype=np.uint16)
-total_train_data.tofile('/content/unagami/data/traintotal.bin')
-total_val_data.tofile('/content/unagami/data/valtotal.bin')
+total_train_data.tofile('/content/NanoCode/data/traintotal.bin')
+total_val_data.tofile('/content/NanoCode/data/valtotal.bin')
 total_train_data=np.memmap(os.path.join(data_dir, 'traintotal.bin'), dtype=np.uint16, mode='r')
 total_val_data=np.memmap(os.path.join(data_dir, 'valtotal.bin'), dtype=np.uint16, mode='r')
 
@@ -79,14 +79,14 @@ def concat_bins():
             val_data = np.memmap(os.path.join(data_dir, filename), dtype=np.uint16, mode='r')
             total_val_data = np.concatenate([total_val_data, val_data])
             del val_data
-            total_val_data.tofile('/content/unagami/data/valtotal.bin')
+            total_val_data.tofile('/content/NanoCode/data/valtotal.bin')
         else:
             # Train files
             print(f"concat {filename}")
             train_data = np.memmap(os.path.join(data_dir, filename), dtype=np.uint16, mode='r')
             total_train_data = np.concatenate([total_train_data, train_data])
             del train_data
-            total_train_data.tofile('/content/unagami/data/traintotal.bin')
+            total_train_data.tofile('/content/NanoCode/data/traintotal.bin')
     print("concat over")
 
 concat_bins()
