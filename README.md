@@ -1,5 +1,4 @@
-# Unagami!
-![Component 1 (2)](https://github.com/VatsaDev/unagami/assets/71975550/4f1fdab4-216a-4717-bf16-4ef542928408)
+# NanoCode
 gpt2 finetuned for code
 
 ## Features
