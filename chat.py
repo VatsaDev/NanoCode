@@ -82,7 +82,7 @@ if compile:
 
 # gpt-2 encodings
 print("loading GPT-2 encodings...")
-enc = tiktoken.get_encoding("cl100k_base")
+enc = tiktoken.get_encoding("gpt2")
 encode = lambda s: enc.encode(s)
 decode = lambda l: enc.decode(l)
 
